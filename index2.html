@@ -3,15 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"/>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    
-    <link href="https://fonts.cdnfonts.com/css/schnoerkel-caps" rel="stylesheet"/>
-
-    <title>Ashley</title>
+    <title>Document</title>
   </head>
   <body>
     <style>
@@ -24,100 +16,193 @@
           --chocolate-cosmos: #49080dff;
         }
         body{
-            background-color: var(--antiflash-white);
-        }
-        .gantz-section{
-         position: relative;
-         height: 500px;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         text-align: center;
-         background:url("fondo.jpg") no-repeat center center/cover;
-        }
-        .gantz-section:after{
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: black;
-          z-index: 1;
-        }
-        .gantz-text{
-          position: relative;
-          z-index: 2;
-        }
-        .gantz-text h1,
-        .gantz-text h3,
-        .gantz-text p{
-          font-family: 'Bowlby One SC', sans-serif;
-          font-size: 60px;
-          font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: var(--chocolate-cosmos);
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
 
-          background: url("fondo.jpg") no-repeat center center/cover;
-          -webkit-background-clip:text;
-          -webkit-text-fill-color:transparent;
-          background-clip: text;
-          letter-spacing: 5px;
-          
         }
-        
+
+        h1{
+            top: 50px;
+            position: relative;
+        }
+
+        .tabla-ciber{
+        top: 115px;
+            width: 90%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            font-family: Arial, Helvetica, sans-serif;
+            box-shadow: 0px 4px 15px black;
+            background-color: var(--sunglow);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tabla-ciber thead{
+            background-color: var(--ultra-violet);
+            color: var(--russian-violet);
+        }
+
+        .tabla-ciber th,
+        .tabla-ciber td{
+            padding: 14px 18px;
+            text-align: center;
+            border: 1px solid var(--antiflash-white);
+            font-size: 16px;
+        }
+        .tabla-ciber th{
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+    .tabla-ciber tr:nth-child(even) {
+        background-color: var(--ultra-violet);
+        color: var(--russian-violet);
+    }
+    .tabla-ciber tr:nth-child(odd) {         
+        background-color: var(--sunglow);         
+        color: var(--ultra-violet);     
+    }
+
+    .tabla-ciber tr:hover {
+        background-color: var(--chocolate-cosmos);
+        color: var(--antiflash-white);
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+    }
+    .tabla-ciber img {
+        width: 70px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0px 2px 6px black;
+    }
     </style>
-    <!--ESTA PARTE ES LA BARRA SOLAMENTE DEL COLOR QUE USTEDES DECIDAN, LA APARTE DEL "VAR"-->
-      <nav class="navbar navbar-light" style="background-color: var(--russian-violet);">
+    
      
-        <div class="container">
-            <a class="navbar-brand" href="index.html" style="background: var(--ultra-violet);">Inicio</a>
+    <table class="tabla-ciber" id="tablaCiberseguridad">
+        <thead>
+            <tr>
+                <th>Ataque</th>
+                <th>Descripcion</th>
+                <th>Impacto</th>
+                <th>Ejemplo</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        //El JSON (JavaScript, Object Notation) con la informacion sobre los ataques de ciberseguridad
+        //declaro la variable en forma CONST para que sea "global"
+        const ataques = [
+            //lo que sigue son los elementos de este json separados por comas, el final no se pone la come para decirle que ya acabo
+            {
+                //estos son los nombres de cada variable que voy a mandar llamar en el html para la tabla
+                "ataque": "Phishing", //se le agrega la coma para decir que continua
+                "descripcion": "Engaña al usuario para robar las credenciales mediante correos falsos.",
+                "impacto": "Robo de identidad, perdida de datos",
+                "ejemplo": "Correo falso de un banco solicitando datos.",
+                "imagen":"https://easydmarc.com/blog/wp-content/uploads/2021/09/Module-4-image-1024x768.png" //aqui buscan una imagen en google referente a eso, poner la liga, y como notan, aqui no hay coma al final porque fue la linea "final"
+            },
+            {
+                "ataque": "Malware",
+                "descripcion": "Es un programa o software intrusivo que se instala sin el conocimiento del usuario para realizar actividades dañinas. ",
+                "impacto": "Robo de datos, Daños al sistema",
+                "ejemplo": "Bloquea archivos y exige un rescate",
+                "imagen":"https://www.avast.com/hs-fs/hubfs/New_Avast_Academy/what_is_malware_academy_refresh/Types-of-Malware.png?width=1321&height=601&name=Types-of-Malware.png"
+            },
+            {
+                "ataque": "Virus",
+                "descripcion": "Un programa o código malicioso diseñado para infectar y dañar. ",
+                "impacto": "Daño de archivos y software, control del dispositivo",
+                "ejemplo": "Se replican y se propagan automáticamente a través de las redes",
+                "imagen":"https://i0.wp.com/skynet-sys.es/wp-content/uploads/2020/07/back-view-of-female-hacker-get-access-denied.jpg?fit=1920%2C1280&ssl=1"
+            },
+            {
+                "ataque": "Worm",
+                "descripcion": "Se reproduce a sí mismo y se propaga a través de redes",
+                "impacto": "Pérdida de datos, Interrupción de servicios",
+                "ejemplo": "Falsa actualización de software",
+                "imagen":"https://4ds.com.mx/wp-content/uploads/2021/11/shutterstock_370712945-e1541167020493.jpeg"
+            },
+            {
+                "ataque": "Botnet",
+                "descripcion": "Red de computadoras infectadas con malware",
+                "impacto": "Robo de información, Spam masivo",
+                "ejemplo": "Una botnet registra teclas para robar contraseñas bancarias.",
+                "imagen":"https://www.redseguridad.com/wp-content/uploads/sites/2/2021/06/botnet.png"
+            },
+            {
+                "ataque": "DDOS",
+                "descripcion": "Es un intento malicioso de saturar un servidor, red o sitio web con un exceso de tráfico proveniente de múltiples fuentes",
+                "impacto": "Caída de servicios, Pérdida económica",
+                "ejemplo": "Miles de bots envían solicitudes a una tienda en línea, colapsando el sitio durante una venta.",
+                "imagen":"https://www.ovhcloud.com/sites/default/files/styles/large_screens_1x/public/2022-03/4_4_what-is-ddos_application-layer-attacks.png"
+            },
+            {
+                "ataque": "Packet Sniffer",
+                "descripcion": "Es una herramienta que captura y analiza el tráfico de red.",
+                "impacto": "Violación de privacidad, Espionaje corporativo",
+                "ejemplo": "Un atacante en una red Wi-Fi pública intercepta contraseñas usando un sniffer.",
+                "imagen":"https://www.avast.com/hs-fs/hubfs/New_Avast_Academy/what_is_packet_sniffing_academy/What-is-Packet-Sniffing-01.png?width=1320&height=600&name=What-is-Packet-Sniffing-01.png"
+            },
+            {
+                "ataque": "IP Spoofing",
+                "descripcion": "Técnica en la que un atacante falsifica la dirección IP de origen",
+                "impacto": "Evasión de seguridad, Acceso no autorizado",
+                "ejemplo": "Un atacante simula ser una IP confiable para entrar a una red privada.",
+                "imagen":"https://lab.wallarm.com/wp-content/uploads/2024/09/Frame-1249186469-min.jpg"
+            },
+            {
+                "ataque": "MITM",
+                "descripcion": "Ataque de intermediario (Man-in-the-Middle) donde un atacante intercepta y potencialmente altera la comunicación entre dos partes sin que estas lo sepan.",
+                "impacto": "Robo de datos sensibles, violación de privacidad",
+                "ejemplo": "n atacante en una red Wi-Fi pública intercepta datos entre un usuario y un sitio bancario, robando credenciales.",
+                "imagen":"https://www.pandasecurity.com/es/mediacenter/src/uploads/2022/04/man-in-the-middle-attack-ES_02-Phases-of-man-in-middle-attack.png"
+            },
+            {
+                "ataque": "Compromised Key Attack",
+                "descripcion": "Ocurre cuando un atacante obtiene acceso a una clave criptográfica privada o secreta, permitiéndole descifrar datos",
+                "impacto": "Acceso no autorizado a sistemas o datos",
+                "ejemplo": "Un atacante roba una clave privada de un certificado SSL y descifra comunicaciones seguras de un sitio web.",
+                "imagen":"https://kcitls.org/img/kci-mitm.png"
+            },
+            {
+                "ataque": "DNS Spoofing",
+                "descripcion": "es un ataque donde un atacante falsifica las respuestas del Sistema de Nombres de Dominio (DNS) para redirigir a los usuarios a sitios web maliciosos sin que lo noten.",
+                "impacto": "Robo de credenciales, exposición a malware, phishing",
+                "ejemplo": "Un atacante redirige a usuarios de un sitio bancario a una página falsa que imita el sitio real para capturar sus datos de inicio de sesión.",
+                "imagen":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6iLej72dRSxh8v9QBJi9b_2Jpqe8AKdmlTw&s"
+            },
+            {
+                "ataque": "Rootkit",
+                "descripcion": "Un rootkit es un tipo de malware que se oculta profundamente en el sistema operativo, otorgando al atacante acceso privilegiado y control encubierto mientras evade la detección.",
+                "impacto": "Acceso no autorizado persistente, robo de datos",
+                "ejemplo": "Un rootkit instalado en un servidor empresarial permite al atacante monitorear y controlar el sistema sin ser detectado por el antivirus.",
+                "imagen":"https://www.knowbe4.com/hubfs/rootkit.png"
+            }
+        ];
+        //Con esta linea voy a hacer referencia al "tbody" que se quedo en la parte de la tabla
+        const cuerpoTabla = document.querySelector ("#tablaCiberseguridad tbody");
+        ataques.forEach(ataque=>{//con esta linea, el foreach recorre todo el scrip
+        const fila = document.createElement ("tr");
         
+        fila.innerHTML =
+        
+        `<td>${ataque.ataque}</td>
+        <td>${ataque.descripcion}</td>
+        <td>${ataque.impacto}</td>
+        <td>${ataque.ejemplo}</td>
+        <td><img src="${ataque.imagen}" alt="${ataque.ataque}"></td>`;
 
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="nav navbar-nav">
-            <li class="nav-item dropdown">
-                 <a class="nav-link dropdown-toggle" href="unidad1.html" 
-                 id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                 aria-expanded="false" style="color: #fffdf7ff;">UNIDAD 1 Ciberseguridad</a>
-                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="./index.html">Conceptos</a><br>
-                    <a class="dropdown-item" href="./index2.html">Ataques</a><br>
-                    <a class="dropdown-item" href="./index3.html">Proteccion</a>
-                 </div>
-            </li>
-        </ul>
-          <ul class="nav navbar-nav">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="unidad1.html"
-              id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false" style="color: #fffdf7ff;">UNIDAD 2</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="./index4.html">Conceptos</a></br>
-                <a class="dropdown-item" href="./index5.html">Ataques</a></br>
-                <a class="dropdown-item" href="./index6.html">Proteccion</a></br>
-              </div>
-            </li> 
-          </ul>
-            <ul class="nav navbar-nav">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="unidad1.html"
-                id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false" style="color: white;">UNIDAD 3</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="./index7.html">Conceptos</a></br>
-                  <a class="dropdown-item" href="./index8.html">Ataques</a></br>
-                  <a class="dropdown-item" href="./index9.html">Proteccion</a>
-                </div>
-              </li>
-            </ul>
-          </nav>
-    <div class="jumbotron"style="background-color: var(--ultra-violet); color: var 
-    (--#49080dff);"> -
-      <div class="gantz-text">
-        <h1>Ashley Hernandez</h1>
-        <h3>Programacion 5toA</h3>
-        <p>Construye Paginas Web</p>
-
-      </div>
-    </div>
+        cuerpoTabla.appendChild(fila);
+        });
+    </script>
   </body>
-</html>
+  </html>
